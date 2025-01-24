@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editar Sociólogo</title>
+  <link rel="shortcut icon" href="/favicon.png" type="image/png">
+  <link rel="stylesheet" href="/stylesheets/editSocio.css">
+</head>
+
+<body>
+  <header>
+    <h1>Editar Sociólogo</h1>
+  </header>
+
+  <main>
+    <form action="/sociodex/editar/<%= sociologo._id %>" method="POST">
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" value="<%= sociologo.nome %>" required>
+    
+      <label for="descricao">Descrição:</label>
+      <textarea id="descricao" name="descricao" rows="4" required><%= sociologo.descricao %></textarea>
+    
+      <label for="dataNascimento">Data de Nascimento:</label>
+      <input 
+        type="date" 
+        id="dataNascimento" 
+        name="dataNascimento" 
+        value="<%= sociologo.dataNascimento ? new Date(sociologo.dataNascimento).toISOString().split('T')[0] : '' %>" 
+        required
+      >
+    
+      <label for="nacionalidade">Nacionalidade:</label>
+      <input type="text" id="nacionalidade" name="nacionalidade" value="<%= sociologo.nacionalidade %>" required>
+    
+      <label for="principaisObras">Principais Obras:</label>
+      <input 
+        type="text" 
+        id="principaisObras" 
+        name="principaisObras" 
+        value="<%= sociologo.principaisObras.join(', ') %>" 
+        required
+      >
+    
+      <label for="imagem">URL da Imagem:</label>
+      <input type="url" id="imagem" name="imagem" value="<%= sociologo.imagem %>" required>
+    
+      <label for="caracteristicas">Características:</label>
+      <select id="caracteristicas" name="caracteristicas" multiple required>
+        <% const selectedCaracteristicas = sociologo.caracteristicas || []; %>
+        <% const opcoes = ['Economista', 'Revolucionario', 'Teorico', 'Feminista', 'Líder Politico', 'Ativista', 'Filosofo', 'Educador', 'Comunista', 'Capitalista']; %>
+        <% opcoes.forEach(opcao => { %>
+          <option value="<%= opcao %>" <%= selectedCaracteristicas.includes(opcao) ? 'selected' : '' %>>
+            <%= opcao %>
+          </option>
+        <% }); %>
+      </select>
+      <p><small>Pressione CTRL (ou CMD no Mac) para selecionar várias opções.</small></p>
+    
+      <label for="coordenadas">Coordenadas:</label>
+      <input 
+        type="text" 
+        id="coordenadas" 
+        name="coordenadas" 
+        value="<%= sociologo.coordenadas ? sociologo.coordenadas.join(', ') : '' %>" 
+        required
+      >
+    
+      <button type="submit">Salvar Alterações</button>
+    </form>
+  </main>
+</body>
+
+</html>

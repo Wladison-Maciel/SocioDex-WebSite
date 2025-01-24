@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/stylesheets/adicionarPerguntas.css">
+  <link rel="shortcut icon" href="/favicon.png" type="image/png">
+  <title><%= title %></title>
+</head>
+<body>
+    
+ <h1><%= title %></h1> 
+
+  <!-- Formulário para adicionar nova pergunta -->
+  <main>
+    <form class="adicionar-pergunta-form" action="/adicionarPerguntas/adicionar" method="POST">
+      <label for="pergunta">Pergunta:</label>
+      <input type="text" id="pergunta" name="pergunta" required>
+  
+      <label for="alternativas">Alternativas (separadas por vírgula):</label>
+      <input type="text" id="alternativas" name="alternativas" required>
+  
+      <label for="respostaCorreta">Resposta Correta:</label>
+      <input type="text" id="respostaCorreta" name="respostaCorreta" required>
+  
+      <button type="submit">Adicionar Pergunta</button>
+    </form>
+  </main>
+  
+</body>
+</html>

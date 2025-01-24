@@ -1,0 +1,98 @@
+/* Importando fonte Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Configuração geral */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f7f7f7;
+  color: #333;
+}
+
+header {
+  text-align: center;
+  background-color: #1E3A5F;
+  color: white;
+  padding: 20px;
+  border-radius: 0 0 10px 10px;
+}
+
+header h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+form {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  width: 100%;
+}
+
+form label {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  display: block;
+  color: #1E3A5F;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+form input:focus,
+form textarea:focus {
+  outline: none;
+  border-color: #1E3A5F;
+  box-shadow: 0 0 5px rgba(30, 58, 95, 0.5);
+}
+
+/* Estilos para cores específicas */
+form select option[value="Economista"] { background-color: #1E3A5F; color: white; }
+form select option[value="Revolucionario"] { background-color: #7A5B59; color: white; }
+form select option[value="Teorico"] { background-color: #424242; color: white; }
+form select option[value="Feminista"] { background-color: #F06292; color: white; }
+form select option[value="LiderPolitico"] { background-color: #388E3C; color: white; }
+form select option[value="Ativista"] { background-color: #6b0042; color: white; }
+form select option[value="Filosofo"] { background-color: #0087f5; color: white; }
+form select option[value="Educador"] { background-color: #944891; color: white; }
+form select option[value="Comunista"] { background-color: #C62828; color: white; }
+form select option[value="Capitalista"] { background-color: #D9BB1A; color: white; }
+
+
+button {
+  background-color: #1E3A5F;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: block;
+  margin: 0 auto;
+}
+
+button:hover {
+  background-color: #16324A;
+}

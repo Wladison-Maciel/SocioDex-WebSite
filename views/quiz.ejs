@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/stylesheets/quiz.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="/favicon.png" type="image/png">
+</head>
+
+<script>
+  window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+      preloader.classList.add('hidden');
+      setTimeout(() => {
+        preloader.style.display = 'none';
+      }, 1000);
+    }
+  });
+</script>
+
+<%- include('./partials/header') %>
+
+<body>
+  <div id="preloader">
+    <div class="loader">
+      <img src="/socio.png" alt="Logo do Projeto" class="logo">
+      <p>Carregando...</p>
+    </div>
+  </div>
+
+  <div class="quiz-container">
+    <% if (feedback) { %>
+      <div class="feedback-box <%= feedbackClass %>">
+        <p><%= feedback %></p>
+        <form id="nextForm" method="POST" action="/quiz/next">
+          <input type="hidden" name="index" value="<%= currentIndex %>">
+          <input type="hidden" name="score" value="<%= score %>">
+          <button class="next-btn" type="submit">Próxima Pergunta</button>
+        </form>
+      </div>
+    <% } else if (question) { %>
+      <form id="quizForm" method="POST" action="/quiz/submit">
+        <div class="question-box">
+          <p class="question-text"><%= question.question %></p>
+        </div>
+        <div class="options-box">
+          <% question.options.forEach(function(option) { %>
+            <label class="option-box">
+              <input type="radio" name="answer" value="<%= option %>">
+              <span><%= option %></span>
+            </label>
+          <% }); %>
+        </div>
+        <input type="hidden" name="index" value="<%= currentIndex %>">
+        <input type="hidden" name="score" value="<%= score %>">
+        <button class="submit-btn" type="submit">Enviar Resposta</button>
+      </form>
+    <% } else { %>
+      <div class="result-box">
+        <h2>Quiz Finalizado!</h2>
+        <p>Você acertou <strong><%= score %></strong> de <%= questions ? questions.length : 0 %> perguntas!</p>
+        <a href="/quiz" class="restart-btn">Refazer o Quiz</a>
+      </div>
+    <% } %>
+  </div>
+</body>
+</html>

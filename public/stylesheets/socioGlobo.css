@@ -1,0 +1,128 @@
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+   
+}
+
+#header {
+    background-color: #333;
+    /*color: white;*/
+    padding: 10px;
+    text-align: center;
+}
+
+#map {
+    flex-grow: 1;
+}
+
+.custom-marker {
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilização da barra de pesquisa */
+
+
+.search-container {
+ display: flex;
+    gap: 10px;
+  }
+  
+  #Input {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    width: 300px;
+    transition: border-color 0.3s ease;
+    
+  }
+  
+  #searchInput:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+
+/* Estilos para a caixa de busca */
+.search-container {
+  text-align: center; /* Centraliza os itens no contêiner */
+  margin: 20px auto; /* Adiciona espaço no topo e centraliza horizontalmente */
+  position: relative; /* Garante que a posição seja relativa ao fluxo normal */
+  z-index: 10; /* Coloca o formulário acima do mapa */
+}
+
+/* Estilos para o input de busca */
+.search-container input[type="text"],
+.search-container #search-input {
+  padding: 10px;
+  font-size: 16px;
+  width: 300px;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  margin-right: 12px;
+  background-color: #F4F4F4;
+  transition: all 0.3s ease;
+}
+
+.search-container input[type="text"]:focus,
+.search-container #search-input:focus {
+  outline: none;
+  border-color: #333;
+  box-shadow: 0 0 5px rgba(51, 51, 51, 0.5);
+}
+
+/* Estilos para o botão de busca */
+.search-container button,
+.search-container #search-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #444;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.search-container button:hover,
+.search-container #search-button:hover {
+  background-color: #333;
+  transform: scale(1.05);
+}
+
+.search-container button:active,
+.search-container #search-button:active {
+  transform: scale(0.95);
+}
+
+/* Estilo para a mensagem de erro ou nenhum resultado */
+.mensagem,
+#search-message {
+  text-align: center;
+  font-size: 18px;
+  color: #e74c3c;
+  margin-top: 10px;
+  font-weight: bold;
+}

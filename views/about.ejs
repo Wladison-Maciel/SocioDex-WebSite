@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/stylesheets/about.css">
+  <link rel="shortcut icon" href="/favicon.png" type="image/png">
+</head>
+<body>
+  <!-- Header -->
+  <%- include('./partials/header') %> 
+
+  <main class="about-container">
+
+    <!-- Seção Sobre a Empresa -->
+    <section class="sobre-empresa">
+      <div class="sobre-empresa-content">
+        <img src="/images/BlackCatBoys.jpg" alt="Sobre a Empresa" class="empresa-img">
+        <div class="sobre-empresa-text">
+          <h1>Sobre a Black Cat</h1>
+          <p>Somos alunos do curso técnico em Informática do Instituto Federal do Ceará. Apaixonados por programação, decidimos criar a BLACK CAT, uma empresa fictícia para ajudar no desenvolvimento dos nossos projetos.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-header">
+      <h1>Nosso time</h1>
+      <p>Conheça a equipe que torna tudo possível!</p>
+    </section>
+
+    <section class="team">
+      <!-- Linha 1 -->
+      <div class="team-row">
+        <div class="team-member">
+          <img src="/images/pedro.png" alt="Pedro Farley">
+          <h3>Pedro Farley</h3>
+          <p>Desenvolvedor Full-Stack e designer do projeto.</p>
+        </div>
+        <div class="team-member">
+          <img src="/images/wladison.jpg" alt="Francisco Wladison">
+          <h3>Wladison Maciel</h3>
+          <p>Desenvolvedor Back-End responsável pela estrutura de código.</p>
+        </div>
+        <div class="team-member">
+          <img src="/images/gerdso.jpg" alt="Gerdson Costa">
+          <h3>Gerdson Costa</h3>
+          <p>Líder de design do projeto e desenvolvedor Front-End.</p>
+        </div>
+      </div>
+
+      <!-- Linha 2 -->
+      <div class="team-row">
+        <div class="team-member">
+          <img src="/images/matheus.jpg" alt="Matheus Carvalho">
+          <h3>Matheus Carvalho</h3>
+          <p>Designer e desenvolvedor Front-End.</p>
+        </div>
+        <div class="team-member">
+          <img src="/images/nicolas.jpg" alt="Nicolas Castro">
+          <h3>Nicolas Castro</h3>
+          <p>Designer e desenvolvedor Front-End.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <%- include('./partials/footer') %>
+</body>
+</html>

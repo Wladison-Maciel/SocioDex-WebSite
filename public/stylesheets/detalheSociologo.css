@@ -1,0 +1,173 @@
+/* Importando a fonte Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* Configurações gerais */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #e3f2fd, #fff);
+  color: #1E3A5F;
+  line-height: 1.6;
+}
+
+h1, h3 {
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  margin: 0.5rem 0;
+  color: #555;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  margin: 0.5rem 0;
+  color: #444;
+}
+
+/* Container principal */
+.detalhe-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background: #fff;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  animation: fadeIn 0.8s ease-out;
+}
+
+/* Efeito de animação */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Foto do sociólogo */
+.detalhe-foto {
+  flex: 1 1 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.detalhe-foto img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.detalhe-foto img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Informações do sociólogo */
+.detalhe-info {
+  flex: 2 1 500px;
+  padding: 1rem;
+}
+
+.detalhe-info h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.detalhe-info h1::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 50px;
+  height: 4px;
+  background: #026fff;
+}
+
+.detalhe-info h3 {
+  margin-top: 1.5rem;
+  font-size: 1.4rem;
+}
+
+/* Estilo para as características (badges) */
+
+.caracteristicas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 1rem;
+}
+
+.badge {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: bold;
+  display: inline-block;
+  text-align: center;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.badge:hover {
+  transform: scale(1.1);
+}
+
+/* Cores específicas para as categorias */
+.category.economista {
+  background-color: #1E3A5F;
+}
+
+.category.revolucionario {
+  background-color: #7A5B59;
+}
+
+.category.teorico {
+  background-color: #424242;
+}
+
+.category.feminista {
+  background-color: #F06292;
+}
+
+.category.LiderPolitico {
+  background-color: #388E3C;
+}
+
+.category.ativista {
+  background-color: #FF7043;
+}
+
+.category.educador {
+  background-color: #944891;
+}
+
+.category.filosofo {
+  background-color: #0087f5;
+}
+
+.category.outros {
+  background-color: #9E9E9E; /* Cinza como cor padrão para "Outros" */
+}
+

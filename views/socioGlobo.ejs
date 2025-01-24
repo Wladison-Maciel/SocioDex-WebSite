@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Mapa Sociólogos</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.9.1/mapbox-gl.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/favicon.png" type="image/png">
+    <!-- Importa o arquivo CSS do Mapbox GL JS para estilização do mapa -->
+    <!-- 
+  - Este link fornece estilos básicos necessários para que o Mapbox GL funcione corretamente.
+  - Inclui layouts de mapa, interações e outros elementos visuais.
+    -->
+    <link rel="stylesheet" href="/stylesheets/socioGlobo.css"> <!-- Linkando o Css do SocioGlobo-->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.9.1/mapbox-gl.js"></script>
+    <!-- Importa a biblioteca JavaScript do Mapbox GL JS -->
+</head>
+
+<!-- Incluir o Header -->
+<%- include('./partials/header') %>
+
+    <body>
+        <!-- Formulário de busca -->
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Buscar Sociólgo" />
+            <button id="search-button">Buscar</button>
+            <p id="search-message" class="mensagem"></p> <!-- Mensagem de erro -->
+        </div>
+
+        <!-- Elemento onde o mapa será exibido -->
+        <div id="map"></div>
+
+        <script>
+            mapboxgl.accessToken = '<%= mapboxConfig %>'; // Puxando token de acesso modularizado
+
+            const map = new mapboxgl.Map({ // Criando o mapa
+                container: 'map',
+                style: 'mapbox://styles/mapbox/streets-v12', // Adicionando o estilo do mapa
+                center: [-38.5426, -3.71722], // Coordenadas padrão
+                zoom: 4 // Zoom padrão de inicio
+            });
+
+            const sociologos = JSON.parse('<%- JSON.stringify(sociologos) %>'); // Passando os sociologos em forma de string
+
+            // Adicionar os marcadores no mapa
+            sociologos.forEach(sociologo => {
+                const el = document.createElement('div');
+                el.className = 'marker';
+                el.style.width = '45px';
+                el.style.height = '45px';
+                el.style.backgroundImage = `url(${sociologo.imagem})`;
+                el.style.backgroundSize = 'cover';
+                el.style.backgroundPosition = 'center';
+                el.style.borderRadius = '50%';
+
+                new mapboxgl.Marker(el)
+                    .setLngLat([sociologo.coordenadas[1], sociologo.coordenadas[0]])
+                    .setPopup(new mapboxgl.Popup({ offset: 25 }).setText(sociologo.nome))
+                    .addTo(map);
+            });
+
+            // Lógica de busca no frontend
+            document.getElementById('search-button').addEventListener('click', () => {
+                const searchInput = document.getElementById('search-input').value.trim();
+                const searchMessage = document.getElementById('search-message');
+
+                if (!searchInput) {
+                    searchMessage.textContent = 'Por favor, insira um nome para buscar.';
+                    return;
+                }
+
+                // Busca no array de sociólogos
+                const resultado = sociologos.find(soc =>
+                    soc.nome.toLowerCase().includes(searchInput.toLowerCase())
+                );
+
+                if (resultado) {
+                    searchMessage.textContent = ''; // Limpa a mensagem de erro
+                    map.flyTo({ // Função do map que vai até o sociologo destino
+                        center: [resultado.coordenadas[1], resultado.coordenadas[0]], // Centralizando nas coordenadas d sociólogo buscado
+                        zoom: 12, // Zoom ajustado para foco
+                        essential: true
+                    });
+                } else {
+                    searchMessage.textContent = `Nenhum sociólogo encontrado com o nome "${searchInput}".`; // Caso não ache retorna o erro
+                }
+            });
+        </script>
+    </body>
+</html>

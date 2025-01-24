@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sociodex</title>
+  <!-- Link para o CSS da página -->
+  <link rel="stylesheet" href="/stylesheets/index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="shortcut icon" href="/favicon.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<!-- Incluir o Header -->
+<%- include('./partials/header') %>
+
+<body>
+  <!-- Seção Principal -->
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h2>Bem-vindo a SocioDex!</h2>
+        <p>Nosso objetivo é tornar a sociologia acessível, revelando de forma simples como as relações sociais moldam o mundo ao nosso redor.</p>
+        <a href="/sociodex" class="btn">Saiba Mais</a>
+      </div>
+      <div class="hero-image">
+        <img src="/sociologos.jpg" alt="Imagem de Sociologia">
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+      <h3>Funcionalidades</h3>
+      <div class="features-grid">
+        <div class="feature">
+          <img src="/biografia.png" alt="Ícone 1" class="feature-icon">
+          <h4>Biografias</h4>
+          <p>Explore as biografias dos principais sociólogos e suas contribuições para a sociologia.</p>
+        </div>
+        <div class="feature">
+          <img src="/teoria2.png" alt="Ícone 2" class="feature-icon">
+          <h4>Teorias</h4>
+          <p>Descubra as teorias que moldaram o entendimento da sociedade e o comportamento humano.</p>
+        </div>
+        <div class="feature">
+          <img src="/pergunta.png" alt="Ícone 3" class="feature-icon">
+          <h4>Quiz</h4>
+          <p>Teste seus conhecimentos sobre sociologia com quizzes interativos.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Timeline Section -->
+  <section class="timeline-horizontal">
+    <h3>História da Sociologia</h3>
+    <div class="timeline-container">
+      <% timeline.forEach(event => { %>
+        <div class="timeline-point" data-description="<%= event.description %>">
+          <img src="/<%= event.image %>" alt="<%= event.event %>" title="<%= event.event %>">
+          <span class="timeline-label"><%= event.date %></span>
+        </div>
+      <% }); %>
+    </div>
+    <div id="timeline-description" class="description-box hidden"></div>
+  </section>
+  </main>
+
+  <!-- Incluir o Footer -->
+  <footer>
+    <%- include('./partials/footer') %>
+  </footer>
+
+  <script>
+// Parte referente a ação das imagens surgirem ao carregar a página
+  document.addEventListener("DOMContentLoaded", () => {
+  const features = document.querySelectorAll(".feature");
+
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  features.forEach(feature => observer.observe(feature));
+});
+// Parte Referente a ação de Click nas imagens da timeline
+document.addEventListener("DOMContentLoaded", () => {
+  const timelinePoints = document.querySelectorAll(".timeline-point");
+  const descriptionBox = document.getElementById("timeline-description");
+
+  timelinePoints.forEach(point => {
+    point.addEventListener("click", function () {
+      // Verifica se a descrição já está visível
+      const isActive = this.classList.contains("active");
+
+      // Remove a classe 'active' de todos os pontos
+      timelinePoints.forEach(p => p.classList.remove("active"));
+
+      if (!isActive) {
+        // Exibe a descrição se não estiver ativa
+        this.classList.add("active");
+        descriptionBox.textContent = this.getAttribute("data-description");
+        descriptionBox.classList.remove("hidden");
+      } else {
+        // Esconde a descrição se já estava ativa
+        descriptionBox.classList.add("hidden");
+        descriptionBox.textContent = "";
+      }
+    });
+  });
+});
+  </script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,78 @@
+/* Footer Estilizado */
+.footer {
+    background: #333; /* Cor de fundo escura */
+    color: #F4F4F4; /* Branco gelo */
+    padding: 1.5rem 0;
+    font-size: 0.9rem;
+  }
+  
+  .footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .footer p {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+  
+  .footer nav {
+    margin-top: 1rem;
+  }
+  
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 1.5rem; /* Espaçamento entre os links */
+  }
+  
+  .footer-links li {
+    margin: 0;
+  }
+  
+  .footer-links a {
+    text-decoration: none;
+    color: #F4F4F4; /* Branco gelo */
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .footer-links a:hover {
+    color: #C8C3BC; /* Destaque ao passar o mouse */
+    transform: scale(1.05); /* Leve aumento no tamanho */
+  }
+  
+  .footer-links a:active {
+    color: #A6A3A0; /* Cor mais escura ao clicar */
+  }
+  
+  .footer-links a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #C8C3BC;
+    transition: width 0.3s ease;
+    margin: 0.3rem auto 0; /* Linha abaixo do texto */
+  }
+  
+  .footer-links a:hover::after {
+    width: 100%; /* Linha aparece ao passar o mouse */
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .footer-links {
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+  }
+  

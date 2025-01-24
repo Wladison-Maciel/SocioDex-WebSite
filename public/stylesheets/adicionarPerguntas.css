@@ -1,0 +1,91 @@
+/* Importando fonte Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Configuração geral */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+
+h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    align-items: center;
+    margin: 0;
+    text-align: center;
+    /* Centraliza o texto */
+    background-color: #1E3A5F;
+    color: white;
+    padding: 20px;
+    border-radius: 0 0 10px 10px;
+    display: flex;
+    /* Torna o header um contêiner flex */
+    justify-content: center;
+    /* Centraliza horizontalmente */
+    align-items: center;
+    /* Centraliza verticalmente */
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.adicionar-pergunta-form {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+}
+
+.adicionar-pergunta-form label {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: block;
+    color: #1E3A5F;
+}
+
+.adicionar-pergunta-form input,
+.adicionar-pergunta-form textarea,
+.adicionar-pergunta-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.adicionar-pergunta-form input:focus,
+.adicionar-pergunta-form textarea:focus,
+.adicionar-pergunta-form select:focus {
+    outline: none;
+    border-color: #1E3A5F;
+    box-shadow: 0 0 5px rgba(30, 58, 95, 0.5);
+}
+
+button {
+    background-color: #1E3A5F;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #16324A;
+}

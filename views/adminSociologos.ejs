@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administração de Sociólogos</title>
+  <link rel="shortcut icon" href="/favicon.png" type="image/png">
+  <link rel="stylesheet" href="/stylesheets/adminSocio.css">
+</head>
+<body>
+  <header>
+    <h1>Administração de Sociólogos</h1>
+  </header>
+
+  <main>
+    <a href="/sociodex/adicionar" class="btn-adicionar">Adicionar Novo Sociólogo</a>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Nacionalidade</th>
+          <th>Data de Nascimento</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% sociologos.forEach(sociologo => { %>
+          <tr>
+            <td><%= sociologo.nome %></td>
+            <td><%= sociologo.nacionalidade %></td>
+            <td><%= new Date(sociologo.dataNascimento).toLocaleDateString('pt-BR') %></td>
+
+            <td>
+              <a href="/sociodex/editar/<%= sociologo._id %>" class="btn-editar">Editar</a>
+              <form action="/sociodex/deletar/<%= sociologo._id %>" method="POST" style="display: inline;">
+                <button type="submit" class="btn-deletar">Excluir</button>
+              </form>
+            </td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+    <a href="/sociodex" class="btn-adicionar">Voltar</a>
+  </main>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= sociologo.nome %> - Detalhes</title>
+  <link rel="shortcut icon" href="/favicon.png" type="image/png">
+  <link rel="stylesheet" href="/stylesheets/detalheSociologo.css">
+</head>
+<body>
+  <%- include('./partials/header') %>
+
+  <div class="detalhe-container">
+    <div class="detalhe-foto">
+      <img src="<%= sociologo.imagem %>" alt="<%= sociologo.nome %>">
+    </div>
+    <div class="detalhe-info">
+      <h1><%= sociologo.nome %></h1>
+      <p><%= sociologo.descricao %></p>
+      <p><strong>Data de Nascimento:</strong> <%= sociologo.dataNascimento %></p>
+      <p><strong>Nacionalidade:</strong> <%= sociologo.nacionalidade %></p>
+      <h3>Principais Obras:</h3>
+      <ul>
+        <% sociologo.principaisObras.forEach(obra => { %>
+          <li><%= obra %></li>
+        <% }) %>
+      </ul>
+      <h3>Características:</h3>
+<div class="caracteristicas">
+  <% sociologo.caracteristicas.forEach(caracteristica => { %>
+    <span class="badge category <%= caracteristica.toLowerCase().replace(/ /g, "-") %>">
+      <%= caracteristica %>
+    </span>
+  <% }) %>
+</div>
+    </div>
+  </div>
+
+  <%- include('./partials/footer') %>
+</body>
+</html>

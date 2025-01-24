@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administração de Perguntas</title>
+  <link rel="shortcut icon" href="/favicon.png" type="image/png">
+  <link rel="stylesheet" href="/stylesheets/adminPerguntas.css">
+</head>
+<body>
+  <header>
+    <h1>Administração de Perguntas</h1>
+  </header>
+
+  <main>
+    <a href="/adicionarPerguntas" class="btn-adicionar">Adicionar Nova Pergunta</a>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Pergunta</th>
+          <th>Opções</th>
+          <th>Resposta Correta</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% perguntas.forEach(pergunta => { %>
+          <tr>
+            <td><%= pergunta.question %></td>
+            <td>
+              <ul>
+                <% pergunta.options.forEach(opcao => { %>
+                  <li><%= opcao %></li>
+                <% }); %>
+              </ul>
+            </td>
+            <td><%= pergunta.answer %></td>
+            <td>
+              <a href="/quiz/editar/<%= pergunta._id %>" class="btn-editar">Editar</a>
+              <form action="/quiz/deletar/<%= pergunta._id %>" method="POST" style="display: inline;">
+                <button type="submit" class="btn-deletar">Excluir</button>
+              </form>
+            </td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+    <a href="/quiz" class="btn-adicionar">Voltar</a>
+  </main>
+</body>
+</html>

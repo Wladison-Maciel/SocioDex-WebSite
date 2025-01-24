@@ -1,0 +1,66 @@
+/* Importando fonte Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Configuração geral */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f7f7f7;
+  color: #333;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  align-items: center;
+  margin: 0;
+  text-align: center;
+  background-color: #1E3A5F;
+  color: white;
+  padding: 20px;
+  border-radius: 0 0 10px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Centraliza o conteúdo dentro do main */
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 70px 20px;
+}
+
+/* Formulário */
+#formFuncAdm {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 100%;
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  gap: 25px; 
+}
+
+/* Botões */
+button {
+  background-color: #1E3A5F;
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #16324A;
+}

@@ -1,0 +1,110 @@
+/* Importando fonte Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Configuração geral */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f7f7f7;
+  color: #333;
+}
+
+header {
+  text-align: center;
+  background-color: #1E3A5F;
+  color: white;
+  padding: 20px;
+  border-radius: 0 0 10px 10px;
+}
+
+header h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+main {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.btn-adicionar {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background-color: #1E3A5F;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.btn-adicionar:hover {
+  background-color: #16324A;
+}
+
+/* Tabela */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+thead {
+  background-color: #1E3A5F;
+  color: white;
+}
+
+thead th {
+  text-align: left;
+  padding: 15px;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+tbody td {
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+  font-size: 0.9rem;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f7f7f7;
+}
+
+/* Botões de Ações */
+.btn-editar,
+.btn-deletar {
+  padding: 8px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+
+.btn-editar {
+  background-color: #388E3C;
+  margin-right: 10px;
+}
+
+.btn-editar:hover {
+  background-color: #2E7D32;
+}
+
+.btn-deletar {
+  background-color: #D32F2F;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-deletar:hover {
+  background-color: #C62828;
+}

@@ -1,0 +1,67 @@
+/* header.css */
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #F4F4F4;
+  }
+  
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centraliza os itens do header */
+    padding: 10px 20px;
+    background-color: #FFFFFF; /* Cor de fundo branca */
+  }
+  
+  .logo img {
+    height: 90px; /* Aumenta a logo, mas sem aumentar a altura do header */
+    object-fit: contain;
+    width: auto; /* Ajusta automaticamente a largura da imagem */
+  }
+  
+  .nav {
+    flex-grow: 1; /* Faz a navegação crescer para ocupar o espaço disponível */
+    text-align: center; /* Centraliza os links */
+  }
+  
+  .nav ul {
+    list-style: none;
+    display: inline-flex; /* Garante que a lista de navegação fique em linha */
+    margin: 0;
+    padding: 0;
+    gap: 30px; /* Espaçamento entre os links */
+  }
+  
+  .nav a {
+    text-decoration: none;
+    color: #1E1E1E;
+    font-weight: 600;
+    font-size: 18px;
+    position: relative;
+    overflow: hidden;
+    padding: 10px;
+    transition: color 0.3s ease;
+  }
+  
+  .nav a::after {
+    content: "";
+    position: absolute;
+    bottom: 3px; /* Posiciona mais perto do texto */
+    left: 0;
+    width: 100%;
+    height: 2px; /* Espessura da linha */
+    background: #3B4D61; /* Cor do feixe */
+    transform: scaleX(0); /* Inicialmente, a linha está invisível */
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+  }
+  
+  .nav a:hover::after {
+    transform: scaleX(1); /* A linha se expande de esquerda para direita */
+  }
+  
+  .nav a:hover {
+    color: #333; /* Muda a cor do texto ao passar o mouse */
+  }
+  

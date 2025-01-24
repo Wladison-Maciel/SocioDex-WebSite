@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SocioDex</title>
+  <link rel="stylesheet" href="/stylesheets/sociodex.css">
+  <link rel="shortcut icon" href="/favicon.png" type="image/png">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.9.1/lottie.min.js"></script>
+</head>
+
+<body>
+  <%- include('./partials/header') %>
+
+  <div class="container">
+    <h1 class="text-center">SocioDex</h1>
+    <p class="text-center">Explore os grandes sociólogos e suas contribuições para a sociedade.</p>
+
+     <!-- Formulário de busca -->
+    <div class="search-container">
+      <form action="/sociodex" method="get">
+        <input type="text" name="busca" placeholder="Buscar Sociólgo" value="<%= busca %>">
+        <button type="submit">Buscar</button>
+      </form>
+    </div>
+
+    <!-- Mensagem de "nenhum resultado" caso a busca não encontre nada -->
+    <% if (sociologos.length === 0) { %>
+      <p class="no-results-message">Nenhum sociólogo encontrado para a pesquisa: "<%= busca %>". Tente novamente com outro termo.</p>
+    <% } else { %>
+      <!-- Grid de Cards -->
+      <div class="grid-cards">
+        <% sociologos.forEach((sociologo, index) => { %>
+          <div 
+            class="card" 
+            onclick="navigateToDetail('<%= sociologo._id %>')" 
+            style="cursor: pointer;"
+          >
+            <!-- Número e Coração -->
+            <div class="card-header">
+              <span class="card-number">#<%= index + 1 %></span>
+              <div id="heart-animation-<%= index %>" class="card-favorite" style="width: 50px; height: 50px;"></div>
+            </div>
+
+            <!-- Foto do Sociólogo -->
+            <img src="<%= sociologo.imagem %>" alt="<%= sociologo.nome %>" class="card-img">
+
+            <!-- Informações -->
+            <div class="card-info">
+              <h2 class="card-title"><%= sociologo.nome %></h2>
+              <div class="card-categories">
+                <% if (Array.isArray(sociologo.caracteristicas)) { %>
+                  <% sociologo.caracteristicas.forEach(caracteristica => { %>
+                    <span class="category <%= caracteristica %>"><%= caracteristica %></span>
+                  <% }) %>
+                <% } else { %>
+                  <span class="category">Sem características</span>
+                <% } %>
+              </div>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+    <% } %>
+  </div>
+
+  <!-- Script para redirecionamento -->
+  <script>
+    function navigateToDetail(id) {
+      window.location.href = `/sociodex/${id}`; // Redireciona para a rota de detalhamento
+    }
+  </script>
+</body>
+</html>
